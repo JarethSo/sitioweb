@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1{
+                text-align: center;
+                font-size: 40px;
+            }
+            h2{
+                text-align: center;
+            }
+            body{
+                background-color: rgb(200, 241, 195);
+            }
+            button{
+                background-color: rgb(140, 196, 88);
+                width: 200px;
+                height: 40px;
+                color: rgb(255, 248, 240);
+            }
+            button:hover{
+                background-color: rgb(14, 80, 36);
+            }
+        </style>
+    </head>
+<body>
+    
+    <h1>Mini Menú</h1>
+
+    <h2>Click en la opción</h2>
+    <button onclick="ahorcado()">EJERCICIO 15</button>
+    <button onclick="test()">EJERCICIO 16</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function ahorcado() {
+            document.getElementById("demo").innerHTML = "<a target='_blank' href='https://portafolio-djso.000webhostapp.com/TercerParcial/ahorcado.html'> EJERCICIO 15 </a>"; 
+        }
+        function test() {
+            document.getElementById("demo").innerHTML = "<a target='_blank' href='https://portafolio-djso.000webhostapp.com/TercerParcial/testalumnoo.html'> EJERCICIO 16 </a>"; 
+        }
+
+    </script>
+
+</body>
+</html>

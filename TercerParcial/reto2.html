@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Bienvenida del usuario</title>
+
+  <script type = "text/javascript">
+    function alertName() {
+        var usu = "Jareth";
+        var contra = "123a";
+
+        var usuario = (document.forms[0].usu.value);
+        var pass = (document.forms[0].pass.value);
+        
+        if(usu==usuario && contra==pass){
+            document.write("<h1>Acceso Permitido</h1");
+        }else{
+            document.write("<h1>Acceso NO Permitido</h1");
+        }
+
+        return true;
+    }
+  </script>
+</head>
+
+<body>
+    <form id="myform" onsubmit="return alertName();">
+        <p>Usuario <input id="usu" name="usu" type="text" /></p>
+        <p>Password <input id="pass" name="pass" type="password" /></p>
+        <p><input type="submit" /></p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>Bienvenida del usuario</title>
+
+  <script type = "text/javascript">
+    function alertName() {
+
+        var grados1 = parseInt(document.forms[0].grados.value);
+        var opcion1 = parseInt(document.forms[0].opcion.value);
+
+        document.write("<p>Grados Centigrados °C = ");
+        document.write (grados1);
+        document.write("</p>");
+
+        if(opcion1 == 1){
+             G = (grados1*1.8) + 32;
+            
+            document.write("<p>Tu opción = Farenheit ");
+            document.write("</p>");
+
+            document.write("<p>Equivale a: ", G);
+            document.write("</p>");
+        }
+        if(opcion1 == 2){
+            var G = grados1 + 273.15;
+    
+            document.write("<p>Tu opción = Kelvin");
+            document.write("</p>");
+
+            document.write("<p>Equivale a: ", G);
+            document.write("</p>"); 
+           }
+        
+
+        return true; 
+    }
+  </script>
+</head>
+
+<body>
+    <form id="myform" onsubmit="return alertName();">
+        <p>Grados Centigrados °C = <input id="grados" name="grados" type="text" /></p>
+        <select name="opcion" id="opcion">
+            <option value="1">FARENHEIT </option>
+            <option value="2">KELVIN </option>
+        </select>
+    
+        <p><input type="submit" /></p>
+    </form>
+</body>
+</html>

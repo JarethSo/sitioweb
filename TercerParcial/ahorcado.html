@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AHORCADO</title>
+        <style>
+            div{
+                margin-top: 15px;
+                border: solid 1px;
+                width: 400px;
+                height: 400px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Ahorcado Parte 1</h1>
+    
+        <div>
+            <canvas id="myCanvas" width="400" height="400"></canvas>
+        </div>
+        <form id="myform" onsubmit="return ahorcado();">
+            <p>Dame la palabra: <input id="word" name="word" type="text" /></p>
+            
+            <p><input type="submit" /></p>
+        </form>
+        <button onclick="limpiar()">Borrar</button>
+        
+        <script>
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+
+            function limpiar(){
+                ctx.fillStyle = "white";
+                ctx.fillRect(10,10,400,400);
+                contador = 0; 
+            }
+
+            let contador = 0; 
+
+            function ahorcado() {
+                var palabra = (document.forms[0].word.value);
+                
+                if(palabra == "jareth"){
+                    alert(`Ganaste!!!`);
+                }
+
+                if(contador <= 6){
+                    contador++;
+                }else{
+                    alert(`Perdiste :(`);
+                }
+
+                if(contador == 1){
+                    //cabeza
+                    ctx.beginPath();
+                    ctx.arc(200,50,40,0,2*Math.PI);
+                    ctx.stroke();
+                }
+
+                if(contador == 2){
+                    //cuerpo 
+                    ctx.beginPath();
+                    ctx.moveTo(200, 90);
+                    ctx.lineTo(200, 250);
+                    ctx.stroke();
+                }
+
+                if(contador == 3){
+                    //mano izquierda
+                    ctx.beginPath();
+                    ctx.moveTo(200, 90);
+                    ctx.lineTo(150, 120);
+                    ctx.stroke();
+                }
+
+                if(contador == 4){
+                    //mano derecha
+                    ctx.beginPath();
+                    ctx.moveTo(200, 90);
+                    ctx.lineTo(250, 120);
+                    ctx.stroke();
+                }
+
+                if(contador == 5){
+                   //pie izquierdo
+                    ctx.beginPath();
+                    ctx.moveTo(200, 250);
+                    ctx.lineTo(150, 280);
+                    ctx.stroke(); 
+                }
+
+                if(contador == 6){
+                    //pie derecho 
+                    ctx.beginPath();
+                    ctx.moveTo(200, 250);
+                    ctx.lineTo(250, 280);
+                    ctx.stroke();
+                    alert(`Perdiste :(`);
+                }
+        
+                return false; 
+            }
+     
+        </script>
+    </body>
+</html>
