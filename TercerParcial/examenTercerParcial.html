@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen Tercer Parcial</title>
+
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="jspdf.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+
+    <style>
+        tr, th {
+            border: 1px solid white;
+            text-align: center;
+            padding: 5px;
+        }
+        div {
+            background-color: rgb(103, 137, 231);
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 1px;
+            padding-bottom: 10px;
+            width: 750px;
+            margin-bottom: 20px;
+        }
+        .uno {
+            background-color: rgb(177, 177, 248);
+        }
+        .unoo {
+            color: white;
+        }
+        h1 {
+            text-align: center;
+        }
+        .espacio {
+            padding-left: 40px;
+            word-spacing: 60px;
+        }
+        .espacio2 {
+            padding-left: 40px;
+            word-spacing: 140px;
+        }
+        .otrocolor {
+            padding-top: 10px;
+            background-color: bisque;
+        }
+        .coloor{
+            background-color: rgb(157, 250, 219);
+        }
+    </style>
+
+    <script>
+        function resultados() {
+            var abecedario = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+            var codif = ['I', 'C', 'Ñ', 'H', 'O', 'M', 'T', 'L', 'B', 'S', 'A', 'R', 'Q', 'P', 'E', 'W', 'J', 'F', 'V', 'U', 'K', 'X', 'D', 'Y', 'N', 'Z', 'G'];
+
+            var te = document.getElementById("te").value.toUpperCase();
+            var text = "";
+
+            for (var i=0; i<te.length; i++) {
+                var PalabraActual = te[i];
+                var index = abecedario.indexOf(PalabraActual);
+
+                if (index !== -1) {
+                    text += codif[index];
+                } else {
+                    text += PalabraActual; 
+                }
+            }
+
+            var doc = new jsPDF();
+            doc.setFontSize(22);
+            doc.text(20, 20, 'Codificación');
+            doc.setFontSize(16);
+            doc.text(20, 30, 'Tu mensaje fue: ' + te);
+            doc.text(20, 40, 'Tu mensaje codificado es: ' + text);
+
+            var string = doc.output('datauristring');
+            document.querySelector('iframe').setAttribute('src', string);
+
+            textop = "<div class='coloor'><h2> Tu mensaje codificado es: "+text+ "</h2></div>";
+            document.getElementById("demo").innerHTML = textop;
+
+            return false; 
+        }
+    </script>
+</head>
+<body>
+    <h1>VERSIÓN B - LOS ROMANOS</h1>
+
+    <div>
+        <h2>Clave de sustitución: </h2>
+
+        <table>
+            <tr class="unoo">
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+                <th>H</th>
+                <th>I</th>
+                <th>J</th>
+                <th>K</th>
+                <th>L</th>
+                <th>M</th>
+                <th>N</th>
+                <th>Ñ</th>
+                <th>O</th>
+                <th>P</th>
+                <th>Q</th>
+                <th>R</th>
+                <th>S</th>
+                <th>T</th>
+                <th>U</th>
+                <th>V</th>
+                <th>W</th>
+                <th>X</th>
+                <th>Y</th>
+                <th>Z</th>
+            </tr>
+
+            <tr class="uno">
+                <th>I</th>
+                <th>C</th>
+                <th>Ñ</th>
+                <th>H</th>
+                <th>O</th>
+                <th>M</th>
+                <th>T</th>
+                <th>L</th>
+                <th>B</th>
+                <th>S</th>
+                <th>A</th>
+                <th>R</th>
+                <th>Q</th>
+                <th>P</th>
+                <th>E</th>
+                <th>W</th>
+                <th>J</th>
+                <th>F</th>
+                <th>V</th>
+                <th>U</th>
+                <th>K</th>
+                <th>X</th>
+                <th>D</th>
+                <th>Y</th>
+                <th>N</th>
+                <th>Z</th>
+                <th>G</th>
+            </tr>
+        </table>
+
+        <h2>Cifrar:</h2>
+        <h2 class="espacio">EJEMPLO OSOQJRW</h2>
+        <h2 class="espacio2">HOLA LWRI</h2>
+    </div>
+
+    <div class="otrocolor">
+        <form id="myform" onsubmit="return resultados();">
+            Mensaje a codificar: <input id="te" name="te" type="text"> <br><br>
+            <button type="submit">Codificar</button>
+        </form>
+    </div>
+
+    <p id="demo"></p>
+
+    <iframe frameborder="0" width="500" height="400"></iframe>
+</body>
+</html>
