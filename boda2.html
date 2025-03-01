@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesa de Regalos</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            text-align: center;
+            background-color: #eaeaea;
+            padding: 50px;
+            color: #333;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 500px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .icon {
+            font-size: 3em;
+            color: #007BFF;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 30px;
+            border-radius: 10px;
+            animation: fadeIn 2s ease-out;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon">💸</div>
+        <h1>Mesa de Regalos</h1>
+        <p>Tu contribución monetaria será un regalo invaluable para nosotros. ¡Gracias por tu generosidad!</p>
+        <img src="dinero.jpg" alt="Contribución Monetaria">
+    </div>
+</body>
+</html>
